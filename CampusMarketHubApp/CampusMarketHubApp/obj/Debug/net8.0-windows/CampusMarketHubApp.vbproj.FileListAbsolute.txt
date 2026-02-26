@@ -1,0 +1,16 @@
+C:\Users\HP\Documents\code\Visual Basic\CampusMarketHubApp\CampusMarketHubApp\bin\Debug\net8.0-windows\CampusMarketHubApp.exe
+C:\Users\HP\Documents\code\Visual Basic\CampusMarketHubApp\CampusMarketHubApp\bin\Debug\net8.0-windows\CampusMarketHubApp.deps.json
+C:\Users\HP\Documents\code\Visual Basic\CampusMarketHubApp\CampusMarketHubApp\bin\Debug\net8.0-windows\CampusMarketHubApp.runtimeconfig.json
+C:\Users\HP\Documents\code\Visual Basic\CampusMarketHubApp\CampusMarketHubApp\bin\Debug\net8.0-windows\CampusMarketHubApp.dll
+C:\Users\HP\Documents\code\Visual Basic\CampusMarketHubApp\CampusMarketHubApp\bin\Debug\net8.0-windows\CampusMarketHubApp.pdb
+C:\Users\HP\Documents\code\Visual Basic\CampusMarketHubApp\CampusMarketHubApp\obj\Debug\net8.0-windows\CampusMarketHubApp.Form1.resources
+C:\Users\HP\Documents\code\Visual Basic\CampusMarketHubApp\CampusMarketHubApp\obj\Debug\net8.0-windows\CampusMarketHubApp.vbproj.GenerateResource.cache
+C:\Users\HP\Documents\code\Visual Basic\CampusMarketHubApp\CampusMarketHubApp\obj\Debug\net8.0-windows\CampusMarketHubApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP\Documents\code\Visual Basic\CampusMarketHubApp\CampusMarketHubApp\obj\Debug\net8.0-windows\CampusMarketHubApp.AssemblyInfoInputs.cache
+C:\Users\HP\Documents\code\Visual Basic\CampusMarketHubApp\CampusMarketHubApp\obj\Debug\net8.0-windows\CampusMarketHubApp.AssemblyInfo.vb
+C:\Users\HP\Documents\code\Visual Basic\CampusMarketHubApp\CampusMarketHubApp\obj\Debug\net8.0-windows\CampusMarketHubApp.vbproj.CoreCompileInputs.cache
+C:\Users\HP\Documents\code\Visual Basic\CampusMarketHubApp\CampusMarketHubApp\obj\Debug\net8.0-windows\CampusMarketHubApp.dll
+C:\Users\HP\Documents\code\Visual Basic\CampusMarketHubApp\CampusMarketHubApp\obj\Debug\net8.0-windows\refint\CampusMarketHubApp.dll
+C:\Users\HP\Documents\code\Visual Basic\CampusMarketHubApp\CampusMarketHubApp\obj\Debug\net8.0-windows\CampusMarketHubApp.pdb
+C:\Users\HP\Documents\code\Visual Basic\CampusMarketHubApp\CampusMarketHubApp\obj\Debug\net8.0-windows\CampusMarketHubApp.genruntimeconfig.cache
+C:\Users\HP\Documents\code\Visual Basic\CampusMarketHubApp\CampusMarketHubApp\obj\Debug\net8.0-windows\ref\CampusMarketHubApp.dll

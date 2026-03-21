@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\user\\OneDrive\\Documents\\VB\\CampusMarketHubApp\\CampusMarketHubApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{82B1322E-BAC8-4AAF-83B0-3CC65DE4BCBD}|CampusMarketHubApp\\CampusMarketHubApp.vbproj|c:\\users\\user\\onedrive\\documents\\vb\\campusmarkethubapp\\campusmarkethubapp\\campusmarkethubapp\\form1.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
-      "RelativeMoniker": "D:0:0:{82B1322E-BAC8-4AAF-83B0-3CC65DE4BCBD}|CampusMarketHubApp\\CampusMarketHubApp.vbproj|solutionrelative:campusmarkethubapp\\form1.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+      "AbsoluteMoniker": "D:0:0:{82B1322E-BAC8-4AAF-83B0-3CC65DE4BCBD}|CampusMarketHubApp\\CampusMarketHubApp.vbproj|c:\\users\\user\\onedrive\\documents\\vb\\campusmarkethubapp\\campusmarkethubapp\\campusmarkethubapp\\forms\\auth\\frmlogin.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{82B1322E-BAC8-4AAF-83B0-3CC65DE4BCBD}|CampusMarketHubApp\\CampusMarketHubApp.vbproj|solutionrelative:campusmarkethubapp\\forms\\auth\\frmlogin.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82B1322E-BAC8-4AAF-83B0-3CC65DE4BCBD}|CampusMarketHubApp\\CampusMarketHubApp.vbproj|c:\\users\\user\\onedrive\\documents\\vb\\campusmarkethubapp\\campusmarkethubapp\\campusmarkethubapp\\forms\\auth\\frmlogin.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{82B1322E-BAC8-4AAF-83B0-3CC65DE4BCBD}|CampusMarketHubApp\\CampusMarketHubApp.vbproj|solutionrelative:campusmarkethubapp\\forms\\auth\\frmlogin.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,22 +18,31 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Form1.vb [Design]",
-              "DocumentMoniker": "C:\\Users\\user\\OneDrive\\Documents\\VB\\CampusMarketHubApp\\CampusMarketHubApp\\CampusMarketHubApp\\Form1.vb",
-              "RelativeDocumentMoniker": "CampusMarketHubApp\\Form1.vb",
-              "ToolTip": "C:\\Users\\user\\OneDrive\\Documents\\VB\\CampusMarketHubApp\\CampusMarketHubApp\\CampusMarketHubApp\\Form1.vb [Design]",
-              "RelativeToolTip": "CampusMarketHubApp\\Form1.vb [Design]",
+              "Title": "frmLogin.vb",
+              "DocumentMoniker": "C:\\Users\\user\\OneDrive\\Documents\\VB\\CampusMarketHubApp\\CampusMarketHubApp\\CampusMarketHubApp\\Forms\\Auth\\frmLogin.vb",
+              "RelativeDocumentMoniker": "CampusMarketHubApp\\Forms\\Auth\\frmLogin.vb",
+              "ToolTip": "C:\\Users\\user\\OneDrive\\Documents\\VB\\CampusMarketHubApp\\CampusMarketHubApp\\CampusMarketHubApp\\Forms\\Auth\\frmLogin.vb",
+              "RelativeToolTip": "CampusMarketHubApp\\Forms\\Auth\\frmLogin.vb",
+              "ViewState": "AgIAAKcAAAAAAAAAAAAUwCEAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2026-02-23T06:09:54.431Z",
+              "WhenOpened": "2026-03-21T11:30:18.049Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmLogin.vb [Design]",
+              "DocumentMoniker": "C:\\Users\\user\\OneDrive\\Documents\\VB\\CampusMarketHubApp\\CampusMarketHubApp\\CampusMarketHubApp\\Forms\\Auth\\frmLogin.vb",
+              "RelativeDocumentMoniker": "CampusMarketHubApp\\Forms\\Auth\\frmLogin.vb",
+              "ToolTip": "C:\\Users\\user\\OneDrive\\Documents\\VB\\CampusMarketHubApp\\CampusMarketHubApp\\CampusMarketHubApp\\Forms\\Auth\\frmLogin.vb [Design]",
+              "RelativeToolTip": "CampusMarketHubApp\\Forms\\Auth\\frmLogin.vb [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2026-03-21T10:32:16.8Z",
               "EditorCaption": " [Design]"
             }
           ]

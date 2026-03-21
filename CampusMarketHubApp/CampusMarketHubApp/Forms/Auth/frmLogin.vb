@@ -30,7 +30,9 @@ Public Class frmLogin
         SetPlaceholder(txtUsername, "Username")
         SetPlaceholder(txtPassword, "Password")
 
-        ' Prevent auto-focus on textbox at startup
+    End Sub
+
+    Private Sub frmLogin_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
         Me.ActiveControl = Nothing
     End Sub
 
@@ -58,6 +60,17 @@ Public Class frmLogin
     Private Sub txtPassword_Leave(sender As Object, e As EventArgs) Handles txtPassword.Leave
         SetPlaceholder(txtPassword, "Password")
         pnlPasswordLine.BackColor = Color.FromArgb(224, 224, 224)
+    End Sub
+
+    Private isPasswordVisible As Boolean = False
+
+    ' -------------------------------------------------------
+    ' View Password Icon
+    ' -------------------------------------------------------
+    Private Sub lblShowPassword_Click(sender As Object, e As EventArgs) Handles lblShowPassword.Click
+        isPasswordVisible = Not isPasswordVisible
+        txtPassword.PasswordChar = If(isPasswordVisible, Nothing, "*"c)
+        lblShowPassword.Text = If(isPasswordVisible, "🙈", "👁")
     End Sub
 
     ' -------------------------------------------------------
@@ -184,8 +197,9 @@ Public Class frmLogin
     ' Navigation links
     ' -------------------------------------------------------
     Private Sub lblForgotPassword_Click(sender As Object, e As EventArgs) Handles lblForgotPassword.Click
-        ' frmForgotPassword.Show() ← uncomment when built
-        MessageBox.Show("Coming soon.", "Forgot Password")
+        Dim forgot As New frmForgotPassword()
+        forgot.Show()
+        Me.Hide()
     End Sub
 
     Private Sub lblSignUp_Click(sender As Object, e As EventArgs) Handles lblSignUp.Click

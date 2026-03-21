@@ -13,6 +13,9 @@ Public Class frmVendorSetup
         SetPlaceholder(txtContact, "Contact Number")
         SetPlaceholder(txtDescription, "Tell buyers what you sell...")
     End Sub
+    Private Sub frmVendorSetup_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
+        Me.ActiveControl = Nothing
+    End Sub
 
     ' -------------------------------------------------------
     ' Placeholder helpers

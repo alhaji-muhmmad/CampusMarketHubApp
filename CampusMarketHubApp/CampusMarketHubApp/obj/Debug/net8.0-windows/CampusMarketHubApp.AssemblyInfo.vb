@@ -16,7 +16,7 @@ Imports System.Reflection
 <Assembly: System.Reflection.AssemblyCompanyAttribute("CampusMarketHubApp"),  _
  Assembly: System.Reflection.AssemblyConfigurationAttribute("Debug"),  _
  Assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0"),  _
- Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a18bfa116a582ea32122fbc35c1a87875f027923"),  _
+ Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7ba3d52dc44c9c86494e241ecb497f840a48b257"),  _
  Assembly: System.Reflection.AssemblyProductAttribute("CampusMarketHubApp"),  _
  Assembly: System.Reflection.AssemblyTitleAttribute("CampusMarketHubApp"),  _
  Assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0"),  _

@@ -4,7 +4,6 @@ Public Class frmSignUp
 
     Private Sub frmSignUp_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         lblError.Text = ""
-        pnlFocus.Focus()
 
         ' Populate role dropdown
         cboRole.Items.Clear()
@@ -17,6 +16,20 @@ Public Class frmSignUp
         SetPlaceholder(txtUsername, "Username")
         SetPlaceholder(txtEmail, "Email Address")
         SetPlaceholder(txtPassword, "Password")
+    End Sub
+    Private Sub frmSignUp_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
+        Me.ActiveControl = Nothing
+    End Sub
+
+    Private isPasswordVisible As Boolean = False
+
+    ' -------------------------------------------------------
+    ' Show password icon
+    ' -------------------------------------------------------
+    Private Sub lblShowPassword_Click(sender As Object, e As EventArgs) Handles lblShowPassword.Click
+        isPasswordVisible = Not isPasswordVisible
+        txtPassword.PasswordChar = If(isPasswordVisible, Nothing, "*"c)
+        lblShowPassword.Text = If(isPasswordVisible, "🙈", "👁")
     End Sub
 
     ' -------------------------------------------------------
@@ -99,15 +112,38 @@ Public Class frmSignUp
         Dim password As String = txtPassword.Text
         Dim selectedRole As String = If(cboRole.SelectedIndex = 1, "Vendor", "Buyer")
 
-        ' Validate
+        ' Validate — Full Name
         If String.IsNullOrWhiteSpace(fullName) OrElse fullName = "Full Name" Then
             ShowError("Please enter your full name.") : Return
         End If
 
+        ' Validate — Username
         If String.IsNullOrWhiteSpace(username) OrElse username = "Username" Then
             ShowError("Please enter a username.") : Return
         End If
 
+        If username.Contains(" ") Then
+            ShowError("Username cannot contain spaces.") : Return
+        End If
+
+        Dim allowedChars As Boolean = username.All(Function(c)
+                                                       Return Char.IsLetterOrDigit(c) OrElse c = "_"c OrElse c = "."c
+                                                   End Function)
+
+        If Not allowedChars Then
+            ShowError("Username can only contain letters, numbers, _ and .") : Return
+        End If
+
+        ' Validate — Email
+        If String.IsNullOrWhiteSpace(email) OrElse email = "Email Address" Then
+            ShowError("Please enter your email address.") : Return
+        End If
+
+        If Not email.Contains("@") OrElse Not email.Contains(".") Then
+            ShowError("Please enter a valid email address.") : Return
+        End If
+
+        ' Validate — Password
         If String.IsNullOrWhiteSpace(password) OrElse password = "Password" Then
             ShowError("Please enter a password.") : Return
         End If
@@ -116,90 +152,79 @@ Public Class frmSignUp
             ShowError("Password must be at least 6 characters.") : Return
         End If
 
-        ' Clean up optional email placeholder
-        If String.IsNullOrWhiteSpace(email) OrElse email = "Email Address" Then
-            ShowError("Please enter your email address.") : Return
-        End If
-
-        ' Basic email format check
-        If Not email.Contains("@") OrElse Not email.Contains(".") Then
-            ShowError("Please enter a valid email address.") : Return
-        End If
-
         Try
             ' Check if username already exists
-            Dim checkSql As String = "SELECT COUNT(*) FROM Users WHERE username = @username"
-            Dim exists As Integer = CInt(DataAccess.ExecuteScalar(checkSql,
-                New SqlParameter("@username", username)))
+            Dim checkUserSql As String =
+            "SELECT COUNT(*) FROM Users WHERE username = @username"
+            Dim userExists As Integer = CInt(DataAccess.ExecuteScalar(checkUserSql,
+            New SqlParameter("@username", username)))
 
-            ' Check for spaces
-            If username.Contains(" ") Then
-                ShowError("Username cannot contain spaces.") : Return
-            End If
-
-            ' Only allow letters, numbers, underscores and dots
-            Dim allowedChars As Boolean = username.All(Function(c)
-                                                           Return Char.IsLetterOrDigit(c) OrElse c = "_"c OrElse c = "."c
-                                                       End Function)
-
-            If Not allowedChars Then
-                ShowError("Username can only contain letters, numbers, _ and .") : Return
-            End If
-
-            If exists > 0 Then
+            If userExists > 0 Then
                 ShowError("Username already taken. Please choose another.")
                 Return
             End If
 
-            ' Insert into Users table
-            Dim insertUserSql As String =
-                "INSERT INTO Users (username, password, role, email)
-                 OUTPUT INSERTED.userId
-                 VALUES (@username, @password, @role, @email)"
+            ' Check if email already exists
+            Dim checkEmailSql As String =
+            "SELECT COUNT(*) FROM Users WHERE email = @email"
+            Dim emailExists As Integer = CInt(DataAccess.ExecuteScalar(checkEmailSql,
+            New SqlParameter("@email", email)))
 
-            Dim newUserId As Integer = CInt(DataAccess.ExecuteScalar(insertUserSql,
-                New SqlParameter("@username", username),
-                New SqlParameter("@password", password),
-                New SqlParameter("@role", selectedRole),
-                New SqlParameter("@email", If(String.IsNullOrWhiteSpace(email),
-                                              DBNull.Value, CObj(email)))))
-
-            ' Insert into role-specific table
-            If selectedRole = "Buyer" Then
-                Dim insertBuyerSql As String =
-                    "INSERT INTO Buyers (userId, fullName) VALUES (@userId, @fullName)"
-                DataAccess.ExecuteNonQuery(insertBuyerSql,
-                    New SqlParameter("@userId", newUserId),
-                    New SqlParameter("@fullName", fullName))
-
-            ElseIf selectedRole = "Vendor" Then
-                Dim insertVendorSql As String =
-                    "INSERT INTO Vendors (userId, shopName) VALUES (@userId, @shopName)"
-                DataAccess.ExecuteNonQuery(insertVendorSql,
-                    New SqlParameter("@userId", newUserId),
-                    New SqlParameter("@shopName", fullName))
+            If emailExists > 0 Then
+                ShowError("An account with this email already exists.")
+                Return
             End If
 
-            ' Log activity
-            LogManager.Log(newUserId, "Register", "New " & selectedRole & " account created")
+            ' Generate 6-digit verification code
+            Dim rng As New Random()
+            Dim code As String = rng.Next(100000, 999999).ToString()
 
-            ' After successful registration
-            If selectedRole = "Vendor" Then
-                ' Vendor goes to shop setup first
-                Dim setup As New frmVendorSetup()
-                setup.Show()
-                Me.Hide()
-            Else
-                ' Buyer goes straight to login
-                MessageBox.Show("Account created successfully! Please log in.",
-                    "Welcome to Campus Market Hub",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information)
-                GoToLogin()
+            ' Invalidate any existing unused codes for this email
+            Dim invalidateSql As String =
+            "UPDATE EmailVerifications SET isUsed = 1
+             WHERE email = @email AND isUsed = 0"
+            DataAccess.ExecuteNonQuery(invalidateSql,
+            New SqlParameter("@email", email))
+
+            ' Store verification code in DB (expires in 10 minutes)
+            Dim insertCodeSql As String =
+            "INSERT INTO EmailVerifications (email, code, expiresAt)
+             VALUES (@email, @code, @expiresAt)"
+            DataAccess.ExecuteNonQuery(insertCodeSql,
+            New SqlParameter("@email", email),
+            New SqlParameter("@code", code),
+            New SqlParameter("@expiresAt", DateTime.Now.AddMinutes(10)))
+
+            ' Send verification email
+            btnCreateAccount.Enabled = False
+            btnCreateAccount.Text = "Sending code..."
+
+            Dim emailSent As Boolean = EmailService.SendVerificationCode(
+            email, fullName, code)
+
+            If Not emailSent Then
+                ShowError("Failed to send verification email. Check your internet connection.")
+                btnCreateAccount.Enabled = True
+                btnCreateAccount.Text = "Create Account"
+                Return
             End If
+
+            ' Save pending registration data
+            PendingRegistration.FullName = fullName
+            PendingRegistration.Username = username
+            PendingRegistration.Email = email
+            PendingRegistration.Password = password
+            PendingRegistration.Role = selectedRole
+
+            ' Navigate to verification screen
+            Dim verify As New frmEmailVerification()
+            verify.Show()
+            Me.Hide()
 
         Catch ex As Exception
-            ShowError("Registration failed: " & ex.Message)
+            ShowError("Something went wrong: " & ex.Message)
+            btnCreateAccount.Enabled = True
+            btnCreateAccount.Text = "Create Account"
         End Try
     End Sub
 

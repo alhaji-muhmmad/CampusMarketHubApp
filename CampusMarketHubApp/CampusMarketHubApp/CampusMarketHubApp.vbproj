@@ -33,7 +33,6 @@
     <Folder Include="Forms\Buyer\" />
     <Folder Include="Forms\Admin\" />
     <Folder Include="Forms\Vendor\" />
-    <Folder Include="Models\" />
     <Folder Include="Helpers\" />
   </ItemGroup>
 

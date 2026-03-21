@@ -42,3 +42,6 @@ C:\Users\user\OneDrive\Documents\VB\CampusMarketHubApp\CampusMarketHubApp\Campus
 C:\Users\user\OneDrive\Documents\VB\CampusMarketHubApp\CampusMarketHubApp\CampusMarketHubApp\obj\Debug\net8.0-windows\CampusMarketHubApp.frmLogin.resources
 C:\Users\user\OneDrive\Documents\VB\CampusMarketHubApp\CampusMarketHubApp\CampusMarketHubApp\obj\Debug\net8.0-windows\CampusMarketHubApp.frmSignUp.resources
 C:\Users\user\OneDrive\Documents\VB\CampusMarketHubApp\CampusMarketHubApp\CampusMarketHubApp\obj\Debug\net8.0-windows\CampusMarketHubApp.frmVendorSetup.resources
+C:\Users\user\OneDrive\Documents\VB\CampusMarketHubApp\CampusMarketHubApp\CampusMarketHubApp\obj\Debug\net8.0-windows\CampusMarketHubApp.frmEmailVerification.resources
+C:\Users\user\OneDrive\Documents\VB\CampusMarketHubApp\CampusMarketHubApp\CampusMarketHubApp\obj\Debug\net8.0-windows\CampusMarketHubApp.frmForgotPassword.resources
+C:\Users\user\OneDrive\Documents\VB\CampusMarketHubApp\CampusMarketHubApp\CampusMarketHubApp\obj\Debug\net8.0-windows\CampusMarketHubApp.frmResetPassword.resources

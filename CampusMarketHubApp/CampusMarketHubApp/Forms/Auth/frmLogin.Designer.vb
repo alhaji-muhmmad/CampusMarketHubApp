@@ -25,6 +25,9 @@ Partial Class frmLogin
         pnlLeft = New Panel()
         lblBrand = New Label()
         pnlRight = New Panel()
+        lblShowPassword = New Label()
+        lblSignUp = New Label()
+        lblSignUpText = New Label()
         lblForgotPassword = New Label()
         btnLogin = New Button()
         lblError = New Label()
@@ -34,8 +37,6 @@ Partial Class frmLogin
         txtUsername = New TextBox()
         lblSubtitle = New Label()
         lblTitle = New Label()
-        lblSignUpText = New Label()
-        lblSignUp = New Label()
         pnlLeft.SuspendLayout()
         pnlRight.SuspendLayout()
         SuspendLayout()
@@ -62,6 +63,7 @@ Partial Class frmLogin
         ' pnlRight
         ' 
         pnlRight.BackColor = Color.White
+        pnlRight.Controls.Add(lblShowPassword)
         pnlRight.Controls.Add(lblSignUp)
         pnlRight.Controls.Add(lblSignUpText)
         pnlRight.Controls.Add(lblForgotPassword)
@@ -77,6 +79,41 @@ Partial Class frmLogin
         pnlRight.Name = "pnlRight"
         pnlRight.Size = New Size(520, 600)
         pnlRight.TabIndex = 1
+        ' 
+        ' lblShowPassword
+        ' 
+        lblShowPassword.AutoSize = True
+        lblShowPassword.Cursor = Cursors.Hand
+        lblShowPassword.Font = New Font("Segoe UI", 12F)
+        lblShowPassword.ForeColor = Color.FromArgb(CByte(125), CByte(129), CByte(132))
+        lblShowPassword.Location = New Point(381, 250)
+        lblShowPassword.Name = "lblShowPassword"
+        lblShowPassword.Size = New Size(39, 28)
+        lblShowPassword.TabIndex = 11
+        lblShowPassword.Text = "👁"
+        ' 
+        ' lblSignUp
+        ' 
+        lblSignUp.AutoSize = True
+        lblSignUp.Cursor = Cursors.Hand
+        lblSignUp.Font = New Font("Segoe UI", 10F)
+        lblSignUp.ForeColor = Color.FromArgb(CByte(219), CByte(68), CByte(68))
+        lblSignUp.Location = New Point(255, 391)
+        lblSignUp.Name = "lblSignUp"
+        lblSignUp.Size = New Size(70, 23)
+        lblSignUp.TabIndex = 10
+        lblSignUp.Text = "Sign Up"
+        ' 
+        ' lblSignUpText
+        ' 
+        lblSignUpText.AutoSize = True
+        lblSignUpText.Font = New Font("Segoe UI", 10F)
+        lblSignUpText.ForeColor = Color.FromArgb(CByte(125), CByte(129), CByte(132))
+        lblSignUpText.Location = New Point(60, 391)
+        lblSignUpText.Name = "lblSignUpText"
+        lblSignUpText.Size = New Size(191, 23)
+        lblSignUpText.TabIndex = 9
+        lblSignUpText.Text = "Don't have an account?"
         ' 
         ' lblForgotPassword
         ' 
@@ -174,29 +211,6 @@ Partial Class frmLogin
         lblTitle.TabIndex = 0
         lblTitle.Text = "Log in to Campus Market Hub"
         ' 
-        ' lblSignUpText
-        ' 
-        lblSignUpText.AutoSize = True
-        lblSignUpText.Font = New Font("Segoe UI", 10F)
-        lblSignUpText.ForeColor = Color.FromArgb(CByte(125), CByte(129), CByte(132))
-        lblSignUpText.Location = New Point(60, 391)
-        lblSignUpText.Name = "lblSignUpText"
-        lblSignUpText.Size = New Size(191, 23)
-        lblSignUpText.TabIndex = 9
-        lblSignUpText.Text = "Don't have an account?"
-        ' 
-        ' lblSignUp
-        ' 
-        lblSignUp.AutoSize = True
-        lblSignUp.Cursor = Cursors.Hand
-        lblSignUp.Font = New Font("Segoe UI", 10F)
-        lblSignUp.ForeColor = Color.FromArgb(CByte(219), CByte(68), CByte(68))
-        lblSignUp.Location = New Point(255, 391)
-        lblSignUp.Name = "lblSignUp"
-        lblSignUp.Size = New Size(70, 23)
-        lblSignUp.TabIndex = 10
-        lblSignUp.Text = "Sign Up"
-        ' 
         ' frmLogin
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
@@ -232,4 +246,5 @@ Partial Class frmLogin
     Friend WithEvents lblForgotPassword As Label
     Friend WithEvents lblSignUp As Label
     Friend WithEvents lblSignUpText As Label
+    Friend WithEvents lblShowPassword As Label
 End Class

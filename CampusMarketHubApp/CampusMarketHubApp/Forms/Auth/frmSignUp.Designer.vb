@@ -23,6 +23,7 @@ Partial Class frmSignUp
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         pnlLeft = New Panel()
+        pnlFocus = New Panel()
         lblBrand = New Label()
         pnlRight = New Panel()
         lblLogin = New Label()
@@ -41,7 +42,7 @@ Partial Class frmSignUp
         txtFullName = New TextBox()
         lblSubtitle = New Label()
         lblTitle = New Label()
-        pnlFocus = New Panel()
+        lblShowPassword = New Label()
         pnlLeft.SuspendLayout()
         pnlRight.SuspendLayout()
         SuspendLayout()
@@ -54,6 +55,13 @@ Partial Class frmSignUp
         pnlLeft.Name = "pnlLeft"
         pnlLeft.Size = New Size(380, 650)
         pnlLeft.TabIndex = 0
+        ' 
+        ' pnlFocus
+        ' 
+        pnlFocus.Location = New Point(0, 0)
+        pnlFocus.Name = "pnlFocus"
+        pnlFocus.Size = New Size(1, 1)
+        pnlFocus.TabIndex = 0
         ' 
         ' lblBrand
         ' 
@@ -69,6 +77,7 @@ Partial Class frmSignUp
         ' pnlRight
         ' 
         pnlRight.BackColor = Color.White
+        pnlRight.Controls.Add(lblShowPassword)
         pnlRight.Controls.Add(lblLogin)
         pnlRight.Controls.Add(lblLoginText)
         pnlRight.Controls.Add(btnCreateAccount)
@@ -253,12 +262,17 @@ Partial Class frmSignUp
         lblTitle.TabIndex = 0
         lblTitle.Text = "Create an account"
         ' 
-        ' pnlFocus
+        ' lblShowPassword
         ' 
-        pnlFocus.Location = New Point(0, 0)
-        pnlFocus.Name = "pnlFocus"
-        pnlFocus.Size = New Size(1, 1)
-        pnlFocus.TabIndex = 0
+        lblShowPassword.AutoSize = True
+        lblShowPassword.Cursor = Cursors.Hand
+        lblShowPassword.Font = New Font("Segoe UI", 12F)
+        lblShowPassword.ForeColor = Color.FromArgb(CByte(125), CByte(129), CByte(132))
+        lblShowPassword.Location = New Point(381, 325)
+        lblShowPassword.Name = "lblShowPassword"
+        lblShowPassword.Size = New Size(39, 28)
+        lblShowPassword.TabIndex = 13
+        lblShowPassword.Text = "👁"
         ' 
         ' frmSignUp
         ' 
@@ -301,4 +315,5 @@ Partial Class frmSignUp
     Friend WithEvents lblLogin As Label
     Friend WithEvents lblLoginText As Label
     Friend WithEvents pnlFocus As Panel
+    Friend WithEvents lblShowPassword As Label
 End Class

@@ -27,7 +27,6 @@ C:\Users\user\OneDrive\Documents\VB\CampusMarketHubApp\CampusMarketHubApp\Campus
 C:\Users\user\OneDrive\Documents\VB\CampusMarketHubApp\CampusMarketHubApp\CampusMarketHubApp\bin\Debug\net8.0-windows\runtimes\unix\lib\net8.0\System.Data.SqlClient.dll
 C:\Users\user\OneDrive\Documents\VB\CampusMarketHubApp\CampusMarketHubApp\CampusMarketHubApp\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Data.SqlClient.dll
 C:\Users\user\OneDrive\Documents\VB\CampusMarketHubApp\CampusMarketHubApp\CampusMarketHubApp\obj\Debug\net8.0-windows\CampusMarketHubApp.vbproj.AssemblyReference.cache
-C:\Users\user\OneDrive\Documents\VB\CampusMarketHubApp\CampusMarketHubApp\CampusMarketHubApp\obj\Debug\net8.0-windows\CampusMarketHubApp.Form1.resources
 C:\Users\user\OneDrive\Documents\VB\CampusMarketHubApp\CampusMarketHubApp\CampusMarketHubApp\obj\Debug\net8.0-windows\CampusMarketHubApp.vbproj.GenerateResource.cache
 C:\Users\user\OneDrive\Documents\VB\CampusMarketHubApp\CampusMarketHubApp\CampusMarketHubApp\obj\Debug\net8.0-windows\CampusMarketHubApp.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\user\OneDrive\Documents\VB\CampusMarketHubApp\CampusMarketHubApp\CampusMarketHubApp\obj\Debug\net8.0-windows\CampusMarketHubApp.AssemblyInfoInputs.cache
@@ -40,3 +39,4 @@ C:\Users\user\OneDrive\Documents\VB\CampusMarketHubApp\CampusMarketHubApp\Campus
 C:\Users\user\OneDrive\Documents\VB\CampusMarketHubApp\CampusMarketHubApp\CampusMarketHubApp\obj\Debug\net8.0-windows\CampusMarketHubApp.pdb
 C:\Users\user\OneDrive\Documents\VB\CampusMarketHubApp\CampusMarketHubApp\CampusMarketHubApp\obj\Debug\net8.0-windows\CampusMarketHubApp.genruntimeconfig.cache
 C:\Users\user\OneDrive\Documents\VB\CampusMarketHubApp\CampusMarketHubApp\CampusMarketHubApp\obj\Debug\net8.0-windows\ref\CampusMarketHubApp.dll
+C:\Users\user\OneDrive\Documents\VB\CampusMarketHubApp\CampusMarketHubApp\CampusMarketHubApp\obj\Debug\net8.0-windows\CampusMarketHubApp.frmLogin.resources

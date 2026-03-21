@@ -29,4 +29,17 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Forms\Auth\" />
+    <Folder Include="Forms\Buyer\" />
+    <Folder Include="Forms\Admin\" />
+    <Folder Include="Forms\Vendor\" />
+    <Folder Include="Models\" />
+    <Folder Include="Helpers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Data.SqlClient" Version="4.9.1" />
+  </ItemGroup>
+
 </Project>

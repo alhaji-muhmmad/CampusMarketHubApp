@@ -189,8 +189,9 @@ Public Class frmLogin
     End Sub
 
     Private Sub lblSignUp_Click(sender As Object, e As EventArgs) Handles lblSignUp.Click
-        ' frmSignUp.Show() ← uncomment when built
-        MessageBox.Show("Coming soon.", "Sign Up")
+        Dim signUp As New frmSignUp()
+        signUp.Show()
+        Me.Hide()
     End Sub
 
     ' -------------------------------------------------------

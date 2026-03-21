@@ -40,3 +40,4 @@ C:\Users\user\OneDrive\Documents\VB\CampusMarketHubApp\CampusMarketHubApp\Campus
 C:\Users\user\OneDrive\Documents\VB\CampusMarketHubApp\CampusMarketHubApp\CampusMarketHubApp\obj\Debug\net8.0-windows\CampusMarketHubApp.genruntimeconfig.cache
 C:\Users\user\OneDrive\Documents\VB\CampusMarketHubApp\CampusMarketHubApp\CampusMarketHubApp\obj\Debug\net8.0-windows\ref\CampusMarketHubApp.dll
 C:\Users\user\OneDrive\Documents\VB\CampusMarketHubApp\CampusMarketHubApp\CampusMarketHubApp\obj\Debug\net8.0-windows\CampusMarketHubApp.frmLogin.resources
+C:\Users\user\OneDrive\Documents\VB\CampusMarketHubApp\CampusMarketHubApp\CampusMarketHubApp\obj\Debug\net8.0-windows\CampusMarketHubApp.frmSignUp.resources

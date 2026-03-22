@@ -47,3 +47,4 @@ C:\Users\user\OneDrive\Documents\VB\CampusMarketHubApp\CampusMarketHubApp\Campus
 C:\Users\user\OneDrive\Documents\VB\CampusMarketHubApp\CampusMarketHubApp\CampusMarketHubApp\obj\Debug\net8.0-windows\CampusMarketHubApp.frmResetPassword.resources
 C:\Users\user\OneDrive\Documents\VB\CampusMarketHubApp\CampusMarketHubApp\CampusMarketHubApp\obj\Debug\net8.0-windows\CampusMarketHubApp.frmBaseDashboard.resources
 C:\Users\user\OneDrive\Documents\VB\CampusMarketHubApp\CampusMarketHubApp\CampusMarketHubApp\obj\Debug\net8.0-windows\CampusMarketHubApp.frmVendorDashboard.resources
+C:\Users\user\OneDrive\Documents\VB\CampusMarketHubApp\CampusMarketHubApp\CampusMarketHubApp\obj\Debug\net8.0-windows\CampusMarketHubApp.frmAddProduct.resources

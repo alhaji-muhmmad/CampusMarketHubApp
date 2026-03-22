@@ -15,11 +15,11 @@
 
     ' Call this on successful login
     Public Shared Sub SetSession(id As Integer, name As String,
-                                  role As String, Optional roleId As Integer = 0)
+                              role As String, Optional roleId As Integer = 0)
         UserId = id
         Username = name
         role = role
-        roleId = roleId
+        SessionManager.RoleId = roleId
     End Sub
 
     ' Call this on logout

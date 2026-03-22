@@ -22,9 +22,15 @@ Partial Class frmVendorDashboard
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        components = New System.ComponentModel.Container
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Text = "frmVendorDashboard"
+        SuspendLayout()
+        ' 
+        ' frmVendorDashboard
+        ' 
+        AutoScaleDimensions = New SizeF(8F, 20F)
+        AutoScaleMode = AutoScaleMode.Font
+        ClientSize = New Size(1006, 553)
+        Name = "frmVendorDashboard"
+        Text = "Vendor Dashboard"
+        ResumeLayout(False)
     End Sub
 End Class

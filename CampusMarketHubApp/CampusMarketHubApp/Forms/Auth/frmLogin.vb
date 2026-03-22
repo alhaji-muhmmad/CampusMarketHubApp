@@ -25,7 +25,6 @@ Public Class frmLogin
     ' Form Load
     ' -------------------------------------------------------
     Private Sub frmLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        SessionManager.ClearSession()
         lblError.Text = ""
         SetPlaceholder(txtUsername, "Username")
         SetPlaceholder(txtPassword, "Password")
@@ -162,17 +161,51 @@ Public Class frmLogin
     ' -------------------------------------------------------
     Private Sub RedirectToDashboard(role As String)
         Me.Hide()
+
         Select Case role
             Case "Admin"
                 ' frmAdminDashboard.Show() ← uncomment when built
                 MessageBox.Show("Welcome, Admin!", "Login Successful")
+
             Case "Vendor"
+                ' Refresh vendorId before opening dashboard
+                Dim vendorSql As String =
+                "SELECT vendorId FROM Vendors WHERE userId = @userId"
+                Dim vendorResult As Object = DataAccess.ExecuteScalar(vendorSql,
+                New SqlParameter("@userId", SessionManager.UserId))
+
+                If vendorResult IsNot Nothing AndAlso vendorResult IsNot DBNull.Value Then
+                    SessionManager.SetSession(
+                    SessionManager.UserId,
+                    SessionManager.Username,
+                    "Vendor",
+                    CInt(vendorResult))
+                End If
+
                 Dim vendorDash As New frmVendorDashboard()
                 vendorDash.Show()
-                Me.Hide()
+
             Case "Buyer"
+                ' Refresh buyerId before opening dashboard
+                Dim buyerSql As String =
+                "SELECT buyerId FROM Buyers WHERE userId = @userId"
+                Dim buyerResult As Object = DataAccess.ExecuteScalar(buyerSql,
+                New SqlParameter("@userId", SessionManager.UserId))
+
+                If buyerResult IsNot Nothing AndAlso buyerResult IsNot DBNull.Value Then
+                    SessionManager.SetSession(
+                    SessionManager.UserId,
+                    SessionManager.Username,
+                    "Buyer",
+                    CInt(buyerResult))
+                End If
+
                 ' frmBuyerDashboard.Show() ← uncomment when built
                 MessageBox.Show("Welcome, Buyer!", "Login Successful")
+
+            Case Else
+                ShowError("Unknown role. Contact administrator.")
+                Me.Show()
         End Select
     End Sub
 

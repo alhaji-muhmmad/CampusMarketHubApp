@@ -3,11 +3,43 @@
 Public Class frmVendorDashboard
     Inherits frmBaseDashboard
 
+    Private activeMenuItem As Label = Nothing
     Private Sub frmVendorDashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadUserInfo()
         BuildSidebarMenu()
         ' Load dashboard home by default
         LoadDashboardHome()
+    End Sub
+
+    Private Sub SetActiveMenuItem(selected As Label)
+        ' Reset previous active item
+        If activeMenuItem IsNot Nothing Then
+            activeMenuItem.BackColor = Color.FromArgb(26, 26, 26)
+            activeMenuItem.ForeColor = Color.FromArgb(189, 189, 189)
+        End If
+
+        ' Set new active item
+        selected.BackColor = Color.FromArgb(40, 40, 40)
+        selected.ForeColor = Color.White
+        activeMenuItem = selected
+
+        ' Update red accent — remove old one and add new one
+        Dim toRemove As New List(Of Control)
+        For Each ctrl As Control In pnlMenuItems.Controls
+            If TypeOf ctrl Is Panel Then
+                toRemove.Add(ctrl)
+            End If
+        Next
+        For Each ctrl As Control In toRemove
+            pnlMenuItems.Controls.Remove(ctrl)
+        Next
+
+        Dim accent As New Panel()
+        accent.Size = New Size(3, 44)
+        accent.Location = New Point(0, selected.Location.Y)
+        accent.BackColor = Color.FromArgb(219, 68, 68)
+        pnlMenuItems.Controls.Add(accent)
+        accent.BringToFront()
     End Sub
 
     ' -------------------------------------------------------
@@ -24,14 +56,44 @@ Public Class frmVendorDashboard
         Dim earningsItem = AddMenuItem("Earnings", 220)
         Dim profileItem = AddMenuItem("My Profile", 264)
 
+        ' Set dashboard as default active
+        activeMenuItem = dashboardItem
+
         ' Wire up click events
-        AddHandler dashboardItem.Click, Sub(s, e) LoadDashboardHome()
-        AddHandler productsItem.Click, Sub(s, e) MessageBox.Show("Coming soon.", "My Products")
-        AddHandler addProductItem.Click, Sub(s, e) MessageBox.Show("Coming soon.", "Add Product")
-        AddHandler ordersItem.Click, Sub(s, e) MessageBox.Show("Coming soon.", "Vendor Orders")
-        AddHandler analyticsItem.Click, Sub(s, e) MessageBox.Show("Coming soon.", "Sales Analytics")
-        AddHandler earningsItem.Click, Sub(s, e) MessageBox.Show("Coming soon.", "Earnings")
-        AddHandler profileItem.Click, Sub(s, e) MessageBox.Show("Coming soon.", "Profile")
+        AddHandler dashboardItem.Click, Sub(s, e)
+                                            SetActiveMenuItem(dashboardItem)
+                                            LoadDashboardHome()
+                                        End Sub
+
+        AddHandler productsItem.Click, Sub(s, e)
+                                           SetActiveMenuItem(productsItem)
+                                           MessageBox.Show("Coming soon.", "My Products")
+                                       End Sub
+
+        AddHandler addProductItem.Click, Sub(s, e)
+                                             SetActiveMenuItem(addProductItem)
+                                             LoadChildForm(New frmAddProduct())
+                                         End Sub
+
+        AddHandler ordersItem.Click, Sub(s, e)
+                                         SetActiveMenuItem(ordersItem)
+                                         MessageBox.Show("Coming soon.", "Vendor Orders")
+                                     End Sub
+
+        AddHandler analyticsItem.Click, Sub(s, e)
+                                            SetActiveMenuItem(analyticsItem)
+                                            MessageBox.Show("Coming soon.", "Sales Analytics")
+                                        End Sub
+
+        AddHandler earningsItem.Click, Sub(s, e)
+                                           SetActiveMenuItem(earningsItem)
+                                           MessageBox.Show("Coming soon.", "Earnings")
+                                       End Sub
+
+        AddHandler profileItem.Click, Sub(s, e)
+                                          SetActiveMenuItem(profileItem)
+                                          MessageBox.Show("Coming soon.", "Profile")
+                                      End Sub
     End Sub
 
     ' -------------------------------------------------------
@@ -145,10 +207,6 @@ Public Class frmVendorDashboard
         Catch
             Return 0D
         End Try
-    End Function
-
-    Protected Overrides Function GetActiveMenuText() As String
-        Return "Dashboard"
     End Function
 
 End Class

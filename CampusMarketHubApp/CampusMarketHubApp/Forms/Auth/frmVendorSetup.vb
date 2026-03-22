@@ -125,6 +125,19 @@ Public Class frmVendorSetup
     ' Navigate to Vendor Dashboard
     ' -------------------------------------------------------
     Private Sub GoToDashboard()
+        ' Refresh RoleId with actual vendorId from DB
+        Dim sql As String = "SELECT vendorId FROM Vendors WHERE userId = @userId"
+        Dim result As Object = DataAccess.ExecuteScalar(sql,
+        New SqlParameter("@userId", SessionManager.UserId))
+
+        If result IsNot Nothing AndAlso result IsNot DBNull.Value Then
+            SessionManager.SetSession(
+            SessionManager.UserId,
+            SessionManager.Username,
+            SessionManager.Role,
+            CInt(result))
+        End If
+
         Dim dashboard As New frmVendorDashboard()
         dashboard.Show()
         Me.Hide()

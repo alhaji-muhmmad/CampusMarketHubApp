@@ -67,7 +67,7 @@ Public Class frmVendorDashboard
 
         AddHandler productsItem.Click, Sub(s, e)
                                            SetActiveMenuItem(productsItem)
-                                           MessageBox.Show("Coming soon.", "My Products")
+                                           LoadChildForm(New frmManageProducts())
                                        End Sub
 
         AddHandler addProductItem.Click, Sub(s, e)
@@ -146,6 +146,34 @@ Public Class frmVendorDashboard
         card.Controls.Add(lblValue)
         card.Controls.Add(lblTitle)
         pnlMainContent.Controls.Add(card)
+    End Sub
+
+    ' -------------------------------------------------------
+    ' Navigate to Add Product
+    ' -------------------------------------------------------
+    Public Sub NavigateToAddProduct()
+        ' Find and click the Add Product menu item
+        For Each ctrl As Control In pnlMenuItems.Controls
+            If TypeOf ctrl Is Label AndAlso CType(ctrl, Label).Text.Trim() = "Add Product" Then
+                SetActiveMenuItem(CType(ctrl, Label))
+                Exit For
+            End If
+        Next
+        LoadChildForm(New frmAddProduct())
+    End Sub
+
+    ' -------------------------------------------------------
+    ' Navigate to Manage Products
+    ' -------------------------------------------------------
+    Public Sub NavigateToManageProducts()
+        For Each ctrl As Control In pnlMenuItems.Controls
+            If TypeOf ctrl Is Label AndAlso
+           CType(ctrl, Label).Text.Trim() = "My Products" Then
+                SetActiveMenuItem(CType(ctrl, Label))
+                Exit For
+            End If
+        Next
+        LoadChildForm(New frmManageProducts())
     End Sub
 
     ' -------------------------------------------------------

@@ -83,7 +83,7 @@
     ' Load a child form into the main content panel
     ' This is how navigation works inside the dashboard
     ' -------------------------------------------------------
-    Protected Sub LoadChildForm(childForm As Form)
+    Public Sub LoadChildForm(childForm As Form)
         ' Close any existing child form
         For Each ctrl As Control In pnlMainContent.Controls
             If TypeOf ctrl Is Form Then

@@ -134,16 +134,23 @@ Public Class frmManageProducts
 
         If e.ColumnIndex = dgvProducts.Columns("Edit").Index Then
             ' Open edit form
-            MessageBox.Show("Edit coming soon — " & productName, "Edit Product")
+            Dim editForm As New frmEditProduct()
+            editForm.ProductId = productId
+
+            Dim dashboard As frmVendorDashboard =
+            TryCast(Me.ParentForm, frmVendorDashboard)
+            If dashboard IsNot Nothing Then
+                dashboard.LoadChildForm(editForm)
+            End If
 
         ElseIf e.ColumnIndex = dgvProducts.Columns("Delete").Index Then
             ' Confirm delete
             Dim confirm As DialogResult = MessageBox.Show(
-                "Are you sure you want to delete """ & productName & """?" &
-                vbNewLine & "This cannot be undone.",
-                "Confirm Delete",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Warning)
+            "Are you sure you want to delete """ & productName & """?" &
+            vbNewLine & "This cannot be undone.",
+            "Confirm Delete",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Warning)
 
             If confirm = DialogResult.Yes Then
                 DeleteProduct(productId, productName)

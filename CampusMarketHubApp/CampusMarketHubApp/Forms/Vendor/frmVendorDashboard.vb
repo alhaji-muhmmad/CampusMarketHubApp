@@ -163,6 +163,20 @@ Public Class frmVendorDashboard
     End Sub
 
     ' -------------------------------------------------------
+    ' Navigate to Manage Products
+    ' -------------------------------------------------------
+    Public Sub NavigateToManageProducts()
+        For Each ctrl As Control In pnlMenuItems.Controls
+            If TypeOf ctrl Is Label AndAlso
+           CType(ctrl, Label).Text.Trim() = "My Products" Then
+                SetActiveMenuItem(CType(ctrl, Label))
+                Exit For
+            End If
+        Next
+        LoadChildForm(New frmManageProducts())
+    End Sub
+
+    ' -------------------------------------------------------
     ' Dashboard data queries
     ' -------------------------------------------------------
     Private Function GetTotalProducts() As Integer

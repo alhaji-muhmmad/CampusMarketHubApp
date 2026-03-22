@@ -25,6 +25,9 @@
     <Compile Update="Forms\Vendor\frmAddProduct.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\Vendor\frmEditProduct.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\Vendor\frmManageProducts.vb">
       <SubType>Form</SubType>
     </Compile>
